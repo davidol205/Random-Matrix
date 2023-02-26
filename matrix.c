@@ -32,8 +32,16 @@ int main(){
     }
 
 
-    printf("\nLa matriz es %d x %d\n",nfilas,ncolumnas);    // Print Matrix Size
+    // Indico tamaño de la matriz
+
+    if(nfilas == ncolumnas) {
+        printf("\nEs una matriz cuadrada de %d x %d\n", nfilas, ncolumnas);
+    }
+    else {
+        printf("\nEs una matriz de %d x %d\n", nfilas, ncolumnas);
+    }
     printf("\n");
+
 
 
     srand ( time(NULL) );   // rand() seedgen
@@ -44,8 +52,9 @@ int main(){
     for (x = 0; x < nfilas; x++) {
         for ( y = 0; y < ncolumnas; y++ ) {
             matrix[x][y] = rand()%100;
+            
             if ( matrix[x][y] < 10 )
-                printf("0%d ",matrix[x][y]);
+                printf("0%d ",matrix[x][y]); // Para mostrar todos los numeros con 2 digitos
             else
                 printf("%d ",matrix[x][y]);
         }
@@ -55,7 +64,7 @@ int main(){
 
     if ( nfilas != ncolumnas ){
 
-        printf("\nOutput 3\n"); // Output 3 - Even numbers
+        printf("\nOutput 3: Valores Pares\n"); // Output 3 - Even numbers
         for ( x = 0; x < nfilas; x++ ) {
             for ( y = 0; y < ncolumnas; y++ ) {
                 if ( matrix[x][y] % 2 == 0 ){
@@ -71,7 +80,7 @@ int main(){
         }
 
 
-        printf("\nOutput 4\n"); // Output 4 - Odd numbers
+        printf("\nOutput 4: Valores Impares\n"); // Output 4 - Odd numbers
         for ( x = 0; x < nfilas; x++ ) {
             for ( y = 0; y < ncolumnas; y++ ) {
                 if ( matrix[x][y] % 2 != 0 ){
@@ -90,7 +99,7 @@ int main(){
 
     else{
 
-        printf("\nOutput 1\n"); // Output 1 - Left Diagonal
+        printf("\nOutput 1: Diagonal Principal\n"); // Output 1 - Left Diagonal
         for ( x = 0; x < nfilas; x++ ) {
             for ( y = 0; y < ncolumnas; y++ ) {
                 if (x == y) {
@@ -106,7 +115,7 @@ int main(){
         }
 
 
-        printf("\nOutput 2\n"); // Output 2 - Right Diagonal
+        printf("\nOutput 2: Diagonal Secundaria\n"); // Output 2 - Right Diagonal
         for ( x = 0; x < nfilas; x++ ) {
             for ( y = 0; y < ncolumnas; y++ ) {
                 if ( x == nfilas - y - 1 ) {
@@ -122,7 +131,7 @@ int main(){
         }
 
 
-        printf("\nOutput 3\n"); // Output 3 - Even numbers
+        printf("\nOutput 3: Valores Pares\n"); // Output 3 - Even numbers
         for ( x = 0; x < nfilas; x++ ) {
             for ( y = 0; y < ncolumnas; y++ ) {
                 if ( matrix[x][y] % 2 == 0 ){
@@ -138,7 +147,7 @@ int main(){
         }
 
 
-        printf("\nOutput 4\n"); // Output 4 - Odd numbers
+        printf("\nOutput 4: Valores Impares\n"); // Output 4 - Odd numbers
         for ( x = 0; x < nfilas; x++ ) {
             for ( y = 0; y < ncolumnas; y++ ) {
                 if ( matrix[x][y] % 2 != 0 ){
@@ -154,7 +163,7 @@ int main(){
         }
 
 
-        printf("\nOutput 5\n"); // Output 5 - Superior Diagonal
+        printf("\nOutput 5: Diagonal Superior\n"); // Output 5 - Superior Diagonal
         for ( x = 0; x < nfilas; x++ ) {
             for ( y = 0; y < ncolumnas; y++ ) {
                 if ( x < y  || x == y){
@@ -170,7 +179,7 @@ int main(){
         }
 
 
-        printf("\nOutput 6\n"); // Output 6 - Inferior Diagonal
+        printf("\nOutput 6: Diagonal Inferior\n"); // Output 6 - Inferior Diagonal
         for ( x = 0; x < nfilas; x++ ) {
             for ( y = 0; y < ncolumnas; y++ ) {
                 if ( x > y  || x == y){
