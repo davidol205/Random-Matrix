@@ -16,8 +16,8 @@ int main(){
     scanf("%d",&nfilas);
 
 
-    if ( nfilas < 3 || nfilas > 99 ) {
-        printf("\nPor favor, Introduce un numero entre [3-99]");
+    if ( nfilas < 2 || nfilas > 99 ) {
+        printf("\nPor favor, Introduce un numero entre [2-99]");
         return 1;
     }
 
@@ -26,14 +26,28 @@ int main(){
     scanf("%d",&ncolumnas);
 
 
-    if ( ncolumnas < 3 || ncolumnas > 99 ) {
-        printf("\nPor favor, Introduce un numero entre [3-99]");
+    if ( ncolumnas < 2 || ncolumnas > 99 ) {
+        printf("\nPor favor, Introduce un numero entre [2-99]");
         return 1;
     }
 
 
-    printf("\nLa matriz es %d x %d\n",nfilas,ncolumnas);    // Print Matrix Size
+    if (ncolumnas == 2 && nfilas == 2) {
+        printf("\nLa matriz de menor tamaño debe ser de 3 x 2 o de 2 x 3");
+        return 1;
+    }
+
+
+    // Indico tamaño de la matriz
+
+    if(nfilas == ncolumnas) {
+        printf("\nEs una matriz cuadrada de %d x %d\n", nfilas, ncolumnas);
+    }
+    else {
+        printf("\nEs una matriz de %d x %d\n", nfilas, ncolumnas);
+    }
     printf("\n");
+
 
 
     srand ( time(NULL) );   // rand() seedgen
@@ -45,13 +59,13 @@ int main(){
         for ( y = 0; y < ncolumnas; y++ ) {
             matrix[x][y] = rand()%100;
             if ( matrix[x][y] < 10 )
-                printf("0%d ",matrix[x][y]);
+                printf("0%d ",matrix[x][y]); // Para mostrar todos los numeros con 2 digitos
             else
                 printf("%d ",matrix[x][y]);
         }
         printf("\n");
     }
-
+    
 
     if ( nfilas != ncolumnas ){
 
